@@ -4,4 +4,8 @@ import org.springframework.beans.factory.BeanFactory;
 
 public abstract class T1 implements BeanFactory {
 
+	public static void main(String[] args) {
+
+	}
+
 }
