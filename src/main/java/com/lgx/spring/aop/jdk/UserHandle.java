@@ -8,10 +8,9 @@ public class UserHandle implements InvocationHandler {
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 
-		Object User = new User();
-
 		System.out.println("===做菜===");
 
+		Object User = new User();
 		method.invoke(User, args);
 
 		System.out.println("===遛弯===");
