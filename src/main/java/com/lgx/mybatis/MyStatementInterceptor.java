@@ -11,7 +11,7 @@ import java.util.Properties;
 // 对 StatementHandler 中的 prepare 方法进行拦截
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare",
 		args = {Connection.class, Integer.class})})
-public class SQLStatsInterceptor implements Interceptor {
+public class MyStatementInterceptor implements Interceptor {
 
 	//进行拦截的时候要执行的方法
 	public Object intercept(Invocation invocation) throws Throwable {
