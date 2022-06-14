@@ -10,15 +10,21 @@ public class T2 {
         List<String> list = Arrays.asList("hello", "world", "stream");
         //创建顺序流
         Stream<String> stream = list.stream();
-        System.out.println(stream);
 
         //创建并行流
         Stream<String> parallelStream = list.parallelStream();
-        System.out.println(parallelStream);
 
-        String[] array = {"h", "e", "l", "l", "o"};
-        Stream<String> arrayStream = Arrays.stream(array);
-        System.out.println(arrayStream);
+        Stream<Integer> stream1 = Stream.of(1, 2, 3, 4, 5, 6);
+        System.out.println(111);
+        System.out.println(stream1);
+
+        Stream<Integer> stream2 = Stream.iterate(0, (x) -> x + 2).limit(3);
+        System.out.println(222);
+        stream2.forEach(System.out::println);
+
+        Stream<Double> stream3 = Stream.generate(Math::random).limit(3);
+        System.out.println(333);
+        stream3.forEach(System.out::println);
 
     }
 }
