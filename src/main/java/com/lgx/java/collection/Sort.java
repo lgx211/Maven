@@ -1,13 +1,12 @@
 package com.lgx.java.collection;
 
-
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class T1 {
+public class Sort {
     public static void main(String[] args) {
         List<String> aaa = new ArrayList<>();
         aaa.add("111");
@@ -16,4 +15,6 @@ public class T1 {
         Collections.sort(aaa);
         System.out.println(JSONObject.toJSONString(aaa));
     }
+
+
 }
