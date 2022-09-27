@@ -2,7 +2,7 @@ package com.lgx.java.lang;
 
 import org.apache.commons.lang3.time.StopWatch;
 
-public class T1 {
+public class CountTime {
     public static void main(String[] args) throws InterruptedException {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();

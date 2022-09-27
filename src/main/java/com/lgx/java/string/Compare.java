@@ -1,4 +1,4 @@
-package com.lgx.java.String;
+package com.lgx.java.string;
 
 public class Compare {
     public static void main(String[] args) {
