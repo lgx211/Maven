@@ -14,5 +14,12 @@ public class ListContain {
 
         System.out.println(s.contains("12"));
         System.out.println(s.contains("123"));
+
+        List<String> a = new ArrayList<>();
+        System.out.println(a.contains("12"));
+
+        List<String> b = null;
+        System.out.println(b.contains("12"));
+
     }
 }
