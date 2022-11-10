@@ -1,4 +1,4 @@
-package com.lgx.utils.excel;
+package com.lgx.utils.excel.easy;
 
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;

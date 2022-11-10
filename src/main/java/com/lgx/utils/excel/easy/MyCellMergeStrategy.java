@@ -1,4 +1,4 @@
-package com.lgx.utils.excel;
+package com.lgx.utils.excel.easy;
 
 import com.alibaba.excel.write.handler.AbstractSheetWriteHandler;
 import com.alibaba.excel.write.metadata.holder.WriteSheetHolder;
@@ -7,12 +7,12 @@ import org.apache.poi.ss.util.CellRangeAddress;
 
 import java.util.List;
 
-public class MyMergeStrategy extends AbstractSheetWriteHandler {
+public class MyCellMergeStrategy extends AbstractSheetWriteHandler {
 
     //合并坐标集合
     private List<CellRangeAddress> cellRangeAddressList;
 
-    public MyMergeStrategy(List<CellRangeAddress> cellRangeAddressList) {
+    public MyCellMergeStrategy(List<CellRangeAddress> cellRangeAddressList) {
         this.cellRangeAddressList = cellRangeAddressList;
     }
 

@@ -1,4 +1,4 @@
-package com.lgx.utils.excel;
+package com.lgx.utils.excel.easy;
 
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategy;
@@ -19,7 +19,7 @@ public class MergeCell {
 
         EasyExcel.write(fileName)
                 .registerWriteHandler(new SimpleColumnWidthStyleStrategy(20))
-                .registerWriteHandler(new MyMergeStrategy(getCellAddress()))
+                .registerWriteHandler(new MyCellMergeStrategy(getCellAddress()))
                 .head(getHead()).sheet("模板")
                 .doWrite(getData());
     }
