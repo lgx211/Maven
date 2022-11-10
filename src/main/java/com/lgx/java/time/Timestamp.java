@@ -7,7 +7,7 @@ public class Timestamp {
     public static void main(String[] args) {
         Long timeStamp = 1664553600000L;  //获取当前时间戳
 
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String sd = sdf.format(new Date(Long.parseLong(String.valueOf(timeStamp))));      // 时间戳转换成时间
         System.out.println("格式化结果：" + sd);
 
@@ -19,9 +19,13 @@ public class Timestamp {
         String sd3 = sdf3.format(new Date(Long.parseLong(String.valueOf(timeStamp))));
         System.out.println("格式化结果：" + sd3);
 
-        SimpleDateFormat sdf4= new SimpleDateFormat("YYYY-MM-dd EE HH:mm:ss");
+        SimpleDateFormat sdf4 = new SimpleDateFormat("YYYY-MM-dd EE HH:mm:ss");
         String sd4 = sdf4.format(new Date(Long.parseLong(String.valueOf(timeStamp))));
         System.out.println("格式化结果：" + sd4);
+
+        SimpleDateFormat sdf5 = new SimpleDateFormat("MM/dd(E)");
+        String sd5 = sdf5.format(new Date(Long.parseLong(String.valueOf(timeStamp))));
+        System.out.println("格式化结果：" + sd5);
 
     }
 }

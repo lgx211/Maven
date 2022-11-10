@@ -11,7 +11,7 @@ public class SplitMonth {
         // 1.开始时间 2017-02-03 13:16:04
         Long startTime = 1486098964000L;
         // 2.结束时间 2019-07-03 13:16:05
-        Long endTime = 1562130965000L;
+        Long endTime = 1486098964000L;
         // 3.开始时间段区间集合
         List<Long> beginDateList = new ArrayList<Long>();
         // 4.结束时间段区间集合
@@ -39,6 +39,13 @@ public class SplitMonth {
      * @param endDateList   结束段时间戳 和 开始段时间戳 一一对应
      */
     public static void getIntervalTimeByMonth(Long startTime, Long endTime, List<Long> beginDateList, List<Long> endDateList) {
+
+        if (startTime.equals(endTime)) {
+            beginDateList.add(startTime);
+            endDateList.add(endTime);
+            return;
+        }
+
         Date startDate = new Date(startTime);
         Date endDate = new Date(endTime);
         Calendar calendar = Calendar.getInstance();

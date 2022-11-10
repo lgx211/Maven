@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //动态表头填充
-public class dynamicHead {
+public class DynamicHead {
 
     public static void main(String[] args) {
         testExport();
