@@ -10,6 +10,10 @@ import org.apache.poi.ss.usermodel.*;
 
 public class MyCellColorStrategy implements CellWriteHandler {
 
+    private Workbook workbook;
+
+    private CellStyle cellStyle;
+
     /**
      * 在创建单元格之前调用
      */
@@ -29,8 +33,17 @@ public class MyCellColorStrategy implements CellWriteHandler {
     public void afterCellDispose(CellWriteHandlerContext context) {
         if (BooleanUtils.isNotTrue(context.getHead())) {
             Cell cell = context.getCell();
-            Workbook workbook = context.getWriteWorkbookHolder().getWorkbook();
-            CellStyle cellStyle = workbook.createCellStyle();
+
+            //Cell Styles 64000 个限制，避免重复创建对象
+            if (workbook == null) {
+                System.out.println("111");
+                workbook = context.getWriteWorkbookHolder().getWorkbook();
+            }
+            if (cellStyle == null) {
+                System.out.println("222");
+                cellStyle = workbook.createCellStyle();
+            }
+
             String stringCellValue = cell.getStringCellValue();
             if (stringCellValue.equals("B333")) {
                 Font writeFont = workbook.createFont();

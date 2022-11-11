@@ -9,9 +9,9 @@ import java.util.List;
 public class SplitMonth {
     public static void main(String[] args) {
         // 1.开始时间 2017-02-03 13:16:04
-        Long startTime = 1486098964000L;
+        Long startTime = 1640966400000L;
         // 2.结束时间 2019-07-03 13:16:05
-        Long endTime = 1486098964000L;
+        Long endTime = 1667232000000L;
         // 3.开始时间段区间集合
         List<Long> beginDateList = new ArrayList<Long>();
         // 4.结束时间段区间集合
@@ -19,6 +19,9 @@ public class SplitMonth {
 
         getIntervalTimeByMonth(startTime, endTime, beginDateList, endDateList);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(beginDateList);
+        System.out.println(endDateList);
 
         for (int i = 0; i < beginDateList.size(); i++) {
             Long beginStr = beginDateList.get(i);
@@ -40,19 +43,20 @@ public class SplitMonth {
      */
     public static void getIntervalTimeByMonth(Long startTime, Long endTime, List<Long> beginDateList, List<Long> endDateList) {
 
-        if (startTime.equals(endTime)) {
+        /*if (startTime.equals(endTime)) {
             beginDateList.add(startTime);
             endDateList.add(endTime);
             return;
-        }
+        }*/
 
         Date startDate = new Date(startTime);
         Date endDate = new Date(endTime);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(startDate);
         beginDateList.add(calendar.getTimeInMillis());
-        while (calendar.getTimeInMillis() < endDate.getTime()) {
-            calendar.add(Calendar.MONTH, 2);
+        while (calendar.getTimeInMillis() <= endDate.getTime()) {
+//            calendar.add(Calendar.MONTH, 2);
+            calendar.add(Calendar.MONTH, 1);
             calendar.set(Calendar.DAY_OF_MONTH, 1);
             calendar.add(Calendar.DATE, -1);
             calendar.set(Calendar.HOUR_OF_DAY, 23);
