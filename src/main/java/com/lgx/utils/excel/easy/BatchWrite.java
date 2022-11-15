@@ -14,18 +14,17 @@ public class BatchWrite {
         String fileName = "/Users/bipo/Downloads/111.xlsx";
 
         ExcelWriter excelWriter = EasyExcel.write(fileName).build();
-//        WriteSheet writeSheet = EasyExcel.writerSheet("111").registerWriteHandler(new MyCellColorStrategy()).build();
-        WriteSheet writeSheet = EasyExcel.writerSheet("111").build();
-
-        //表头数据
-        WriteTable writeTable = new WriteTable();
-        writeTable.setHead(getHead());
+//        WriteSheet writeSheet = EasyExcel.writerSheet("111").build();
 
         //写入同一个sheet页
-        excelWriter.write(getData(), writeSheet, writeTable);
-        excelWriter.write(getData2(), writeSheet, writeTable);
+        for (int i = 0; i < 5; i++) {
+            WriteSheet writeSheet = EasyExcel.writerSheet("111").registerWriteHandler(new MyCellColorStrategy()).build();
+            //表头数据
+            WriteTable writeTable = new WriteTable();
+            writeTable.setHead(getHead());
+            excelWriter.write(getData(), writeSheet, writeTable);
+        }
 
         excelWriter.finish();
-
     }
 }

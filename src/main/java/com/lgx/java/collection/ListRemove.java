@@ -20,6 +20,9 @@ public class ListRemove {
         strList2.removeIf(s -> (s.equals("a")));
         System.out.println("结果" + strList2);
 
+        strList2.removeIf(s -> (s.contains("a")));
+        System.out.println("结果2" + strList2);
+
 
         List<Integer> list = Lists.newArrayList();
         list.add(1);
@@ -34,9 +37,7 @@ public class ListRemove {
                 iterator.remove();
             }
         }
-        System.out.println("结果" + list);
+        System.out.println("结果3" + list);
 
     }
-
-
 }
