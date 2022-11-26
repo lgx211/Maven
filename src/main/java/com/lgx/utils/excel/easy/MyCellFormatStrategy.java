@@ -35,7 +35,7 @@ public class MyCellFormatStrategy implements CellWriteHandler {
             String stringCellValue = cell.getStringCellValue();
             if (stringCellValue.matches("-?[0-9]+.?[0-9]*")){
                 cell.setCellType(CellType.NUMERIC);
-                cell.setCellValue(Integer.parseInt(stringCellValue));
+                cell.setCellValue(Double.parseDouble(stringCellValue));
             }
 
         }
