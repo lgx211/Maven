@@ -16,13 +16,13 @@ public class ExcelTest {
         List<UserPojo> userPojos = new ArrayList<UserPojo>();
         userPojos.add(userPojo);
         userPojos.add(userPojo2);
-        String fileName = "/Users/liguoxi/tmp/aaa.xlsx";
+        String fileName = "/Users/bipo/tmp/aaa.xlsx";
 
-        Poi.writeExcel(userPojos, fileName);
+//        Poi.writeExcel(userPojos, fileName);
 
         EasyExcel.writeExcel(userPojos, fileName);
 
-        HuTool.writeExcel(userPojos, fileName);
+//        HuTool.writeExcel(userPojos, fileName);
 
     }
 }
