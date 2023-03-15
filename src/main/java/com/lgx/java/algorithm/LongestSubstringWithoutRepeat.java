@@ -13,7 +13,7 @@ public class LongestSubstringWithoutRepeat {
     */
     public static void main(String[] args) {
 //        String string = "abca";
-        String string = "axdcab";
+        String string = "axdcabaaa";
 
 //        method1(string);
 //        method2(string);
@@ -96,6 +96,9 @@ public class LongestSubstringWithoutRepeat {
     public static void method3(String string) {
 
         List<Character> characters = new ArrayList<>();
+        int max = 0;
+        String maxString = "";
+
         for (int i = 0; i < string.length(); i++) {
             Character character = string.charAt(i);
             int j = characters.indexOf(character);
@@ -105,8 +108,15 @@ public class LongestSubstringWithoutRepeat {
             }
             characters.add(character);
             System.out.println("添加：" + JSONObject.toJSONString(characters));
+
+            if (max <= characters.size()) {
+                max = characters.size();
+                maxString = characters.toString();
+            }
+
         }
-        System.out.println(JSONObject.toJSONString(characters));
+        System.out.println(max);
+        System.out.println(maxString);
     }
 
     //3，拆除一层循环。借助map的数据格式，第一层得到各个字符重复的位置，第二层看各个字符位置之间的最大间隔。
