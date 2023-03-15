@@ -19,7 +19,8 @@ public class TwoSum {
 //        method1(array, total);
 //        method2(array, total);
 //        method3(array, total);
-        method4(array, total);
+//        method4(array, total);
+        method5(array, total);
     }
 
     //1，暴力法，两层循环，逐个尝试比较。
@@ -38,7 +39,7 @@ public class TwoSum {
 
     //2，暴力法，两层循环，逐个尝试比较，跳过自己与自己比较。
     //结果(1,5),(2,4)，正确
-    //
+    // (n * (n+1)) / 2 次循环
     public static void method2(int[] array, int total) {
         for (int i = 0; i < array.length; i++) {
             for (int j = (i + 1); j < array.length; j++) {
@@ -82,6 +83,22 @@ public class TwoSum {
                 System.out.println(array[i]);
                 System.out.println(sub);
             }
+        }
+    }
+
+    //5,拆除一层循环。借助map的数据格式，并合并两个循环
+    //结果(4,2),(5,1)，无重复
+    //n 次循环
+    public static void method5(int[] array, int total) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            int sub = total - array[i];
+            if (map.containsKey(sub)) {
+                System.out.println(array[i]);
+                System.out.println(sub);
+            }
+            map.put(array[i], i);
         }
     }
 }
