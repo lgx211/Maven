@@ -13,12 +13,13 @@ public class LongestSubstringWithoutRepeat {
     */
     public static void main(String[] args) {
 //        String string = "abca";
-        String string = "axdcabaaa";
+//        String string = "abba";
+        String string = "abac";
 
 //        method1(string);
 //        method2(string);
-        method3(string);
-//        method4(string);
+//        method3(string);
+        method4(string);
 //        method5(string);
 //        method6(string);
     }
@@ -90,9 +91,9 @@ public class LongestSubstringWithoutRepeat {
         System.out.println(maxString);
     }
 
-    //3，暴力法，三层循环，前两层循环得到各子串组合，第三层循环判断该子串是否有重复
-    //比较是否重复：set判断
-    // n * n * n 次循环
+    //3，滑动窗口法，一层循环，有重复字符就直接从下个滑动，过程中记录对比最大
+    //比较是否重复：indexOf 判断，底层是一个循环
+    // n 次循环
     public static void method3(String string) {
 
         List<Character> characters = new ArrayList<>();
@@ -119,11 +120,64 @@ public class LongestSubstringWithoutRepeat {
         System.out.println(maxString);
     }
 
-    //3，拆除一层循环。借助map的数据格式，第一层得到各个字符重复的位置，第二层看各个字符位置之间的最大间隔。
+    //4，滑动窗口法，一层循环，有重复字符就直接从下个滑动，过程中记录对比最大
+    //比较是否重复：map 判断
+    // n 次循环
+    public static void method4(String string) {
+
+        Map<Character, Integer> map = new HashMap<>();
+        int max = 0;
+        int left = 0;
+        String maxString = "";
+
+        for (int right = 0; right < string.length(); right++) {
+            Character character = string.charAt(right);
+            if (map.containsKey(character)) {
+                left = Math.max((map.get(character) + 1), right);
+            }
+            map.put(character, right);
+
+            int x = right - left + 1;
+            if (max < x) {
+                max = x;
+                maxString = string.substring(left, right + 1);
+            }
+            System.out.println("map:" + JSONObject.toJSONString(map));
+        }
+        System.out.println(max);
+        System.out.println(maxString);
+    }
+
+    public static void method5(String string) {
+
+        Map<Character, Integer> map = new HashMap<>();
+        int max = 0;
+        int left = 0;
+        String maxString = "";
+
+        for (int right = 0; right < string.length(); right++) {
+            Character character = string.charAt(right);
+            if (map.containsKey(character)) {
+                left = Math.max(map.get(character), left);
+            }
+
+            map.put(character, right + 1);
+
+            int tmp = right - left + 1;
+            if (max < tmp) {
+                max = tmp;
+                maxString = string.substring(left, right + 1);
+            }
+        }
+        System.out.println(max);
+        System.out.println(maxString);
+    }
+
+    //其它，拆除一层循环。借助map的数据格式，第一层得到各个字符重复的位置，第二层看各个字符位置之间的最大间隔。
     // 失败，最大间隔可能有其它重复的字符
     //比较是否重复：set判断
     // n + n * n 次循环
-    public static void method3A(String string) {
+    public static void method9A(String string) {
         int length = string.length();
 
         //记录字符的位置信息
@@ -160,11 +214,11 @@ public class LongestSubstringWithoutRepeat {
         System.out.println(maxString);
     }
 
-    //4，拆除两层循环。借助 while 循环形式。
+    //其它，拆除两层循环。借助 while 循环形式。
     //失败，最大间隔可能有其它重复的字符
     //比较是否重复：set判断
     // n 次循环
-    public static void method4A(String string) {
+    public static void method9B(String string) {
         int length = string.length();
         Set<Character> set = new HashSet<>();
         int max = 0;
@@ -188,31 +242,6 @@ public class LongestSubstringWithoutRepeat {
             }
         }
 
-        System.out.println(max);
-        System.out.println(maxString);
-    }
-
-    public static void method5(String string) {
-        int n = string.length();
-        Set<Character> set = new HashSet<>();
-        int max = 0, i = 0, j = 0;
-        String maxString = "";
-        while (i < n && j < n) {
-            Character character = string.charAt(j);
-            if (!set.contains(character)) {
-                Character characterJ = string.charAt(j++);
-                set.add(characterJ);
-                if (max < j - i) {
-                    max = j - i;
-                    maxString = string.substring(i, j);
-                }
-            } else {
-                Character characterI = string.charAt(i++);
-                set.remove(characterI);
-            }
-
-            System.out.println(JSONObject.toJSONString(set));
-        }
         System.out.println(max);
         System.out.println(maxString);
     }
