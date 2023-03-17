@@ -13,8 +13,8 @@ public class LongestSubstringWithoutRepeat {
     */
     public static void main(String[] args) {
 //        String string = "abca";
-//        String string = "abba";
-        String string = "abac";
+        String string = "abba";
+//        String string = "abac";
 
 //        method1(string);
 //        method2(string);
@@ -133,9 +133,9 @@ public class LongestSubstringWithoutRepeat {
         for (int right = 0; right < string.length(); right++) {
             Character character = string.charAt(right);
             if (map.containsKey(character)) {
-                left = Math.max((map.get(character) + 1), right);
+                left = map.get(character) + 1;
             }
-            map.put(character, right);
+            map.put(character, 2);
 
             int x = right - left + 1;
             if (max < x) {
