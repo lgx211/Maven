@@ -12,16 +12,14 @@ public class LongestSubstringWithoutRepeat {
         要求：找到没有重复字符的最长子串，返回它的长度。
     */
     public static void main(String[] args) {
-//        String string = "abca";
-        String string = "abba";
+        String string = "abca";
+//        String string = "abba";
 //        String string = "abac";
 
 //        method1(string);
 //        method2(string);
 //        method3(string);
         method4(string);
-//        method5(string);
-//        method6(string);
     }
 
     //1，暴力法，三层循环，前两层循环得到各子串组合，第三层循环判断该子串是否有重复
@@ -133,9 +131,9 @@ public class LongestSubstringWithoutRepeat {
         for (int right = 0; right < string.length(); right++) {
             Character character = string.charAt(right);
             if (map.containsKey(character)) {
-                left = map.get(character) + 1;
+                left = Math.max(map.get(character) + 1, left);
             }
-            map.put(character, 2);
+            map.put(character, right);
 
             int x = right - left + 1;
             if (max < x) {
@@ -148,30 +146,6 @@ public class LongestSubstringWithoutRepeat {
         System.out.println(maxString);
     }
 
-    public static void method5(String string) {
-
-        Map<Character, Integer> map = new HashMap<>();
-        int max = 0;
-        int left = 0;
-        String maxString = "";
-
-        for (int right = 0; right < string.length(); right++) {
-            Character character = string.charAt(right);
-            if (map.containsKey(character)) {
-                left = Math.max(map.get(character), left);
-            }
-
-            map.put(character, right + 1);
-
-            int tmp = right - left + 1;
-            if (max < tmp) {
-                max = tmp;
-                maxString = string.substring(left, right + 1);
-            }
-        }
-        System.out.println(max);
-        System.out.println(maxString);
-    }
 
     //其它，拆除一层循环。借助map的数据格式，第一层得到各个字符重复的位置，第二层看各个字符位置之间的最大间隔。
     // 失败，最大间隔可能有其它重复的字符
