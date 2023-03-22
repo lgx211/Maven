@@ -10,9 +10,9 @@ public class ZigZagConversion {
    */
     public static void main(String[] args) {
         String string = "abcdefg";
-//        int height = 3;
 //        int height = 1;
         int height = 2;
+//        int height = 3;
 
         method1(string, height);
     }
@@ -34,13 +34,6 @@ public class ZigZagConversion {
             Character character = string.charAt(i);
 
             if (flag) {
-
-
-
-
-
-
-
                 System.out.println("x1:" + x);
                 System.out.println("y1:" + y);
                 System.out.println("character1:" + character);
@@ -48,22 +41,23 @@ public class ZigZagConversion {
                 characters[x][y] = character;
                 if (x == height - 1) {
                     flag = false;
-                    x = x - 1;
                     y = y + 1;
                 } else {
                     x = x + 1;
                 }
             } else {
+                x = x - 1;
                 System.out.println("x2:" + x);
                 System.out.println("y2:" + y);
                 System.out.println("character2:" + character);
 
                 characters[x][y] = character;
-                if (x == 1) {
+                if (x == 0) {
+                    x = x + 1;
                     flag = true;
+                } else {
+                    y = y + 1;
                 }
-                x = x - 1;
-                y = y + 1;
             }
         }
 
