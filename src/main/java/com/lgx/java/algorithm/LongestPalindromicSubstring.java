@@ -3,6 +3,12 @@ package com.lgx.java.algorithm;
 import java.util.Objects;
 
 public class LongestPalindromicSubstring {
+
+    /*
+        题目4
+        给定：一个字符串
+        要求：找到符合回文条件的最长的子字符串。
+    */
     public static void main(String[] args) {
 //        String string = "abcb";
 //        String string = "a";
