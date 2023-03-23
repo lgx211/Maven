@@ -9,16 +9,18 @@ public class ZigZagConversion {
        要求：得到从左到右，从上到下读取的字符串。
    */
     public static void main(String[] args) {
-        String string = "abcdefg";
+        String string = "0123456789";
 //        int height = 1;
         int height = 2;
 //        int height = 3;
+//        int height = 4;
 
-        method1(string, height);
+//        method1(string, height);
+        method2(string, height);
     }
 
     //暴力法，先按照规律，填充进二维数组里，然后再正常读取非空字符。
-    //填充循环：if 里手动操作
+    //填充数组的循环：if 里手动操作
     // n + n * n 次循环
     public static void method1(String string, int height) {
         if (height == 1) {
@@ -73,6 +75,40 @@ public class ZigZagConversion {
         }
         System.out.println(stringBuilder);
 
+    }
+
+    //下标规律法，在填充进二维数组时，存好。
+    //按照行数循环，根据规律找到该行下一个符合条件的直接拼接上
+    // n * n 次循环
+    public static void method2(String string, int height) {
+        if (height == 1) {
+            System.out.println(string);
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        //一个竖和斜为一个周期。n + n - 2
+        int cycle = 2 * height - 2;
+        int length = string.length();
+
+        //循环行数
+        for (int i = 0; i < height; i++) {
+            int j = 0;
+            int m = i;
+            //循环改行的列数，如果字符串可以被截取到
+            while (m < length) {
+                stringBuilder.append(string.charAt(m));
+                j++;
+                //下一个符合竖线上的，对应上字符串中的位置
+                m = j * cycle + i;
+
+                //下一个符合斜线上的，对应上字符串中的位置
+                int n = m - 2 * i;
+                if (i > 0 && i < height - 1 && n < length) {
+                    stringBuilder.append(string.charAt(n));
+                }
+            }
+        }
+        System.out.println(stringBuilder);
     }
 
 
