@@ -1,5 +1,7 @@
 package com.lgx.java.algorithm;
 
+import com.alibaba.fastjson.JSONObject;
+
 public class T1 {
 
     public static void main(String[] args) {
@@ -13,13 +15,12 @@ public class T1 {
         System.out.println(3 / 2);
 
         int arr[][] = {{1, 2}, {3, 4, 5}, {6, 7}};
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + "\t");
-            }
-        }
+        System.out.println(JSONObject.toJSONString(arr));
 
-        System.out.println(Integer.parseInt("-8463847412"));
+        System.out.println("取商" + 123 / 10);
+        System.out.println("取余" + 123 % 10);
+
+//        System.out.println(Integer.parseInt("-8463847412"));
 
     }
 }
