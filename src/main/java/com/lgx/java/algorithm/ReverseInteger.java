@@ -8,17 +8,18 @@ public class ReverseInteger {
    */
 
     public static void main(String[] args) {
-//        int a = 1234567;
-        int a = -1234567;
+        int a = 1234567;
+//        int a = -1234567;
 //        int a = -1234567899;
 //        int a = 1534236469;
 
 //        method1(a);
-        method2(a);
+//        method2(a);
+        method3(a);
     }
 
     //1,暴力法，数字换成字符串，字符串反转顺序，再转成数字
-    //数字反转：for 倒循环，- 特殊判断下处理
+    //数字反转：字符串数组 for 倒循环，- 特殊判断下处理
     // n 次循环
     public static void method1(int a) {
 
@@ -66,13 +67,31 @@ public class ReverseInteger {
         String s = new StringBuilder(b).reverse().toString();
 
         int c = 0;
-        try{
+        try {
             c = Integer.parseInt(s) * f;
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             c = 0;
         }
 
         System.out.println(c);
+    }
+
+    //求商求余数法，不断求除以10的余数得到反转
+    public static void method3(int x) {
+        long a = 0;
+        while (x != 0) {
+            //余数，相当于不断从后往前读取一个值
+            int remainder = x % 10;
+
+            a = a * 10 + remainder;
+
+            //商数，相当于不断从后往前截去一个值
+            x = x / 10;
+        }
+
+        //超过限制就归0
+        a = a < Integer.MIN_VALUE || a > Integer.MAX_VALUE ? 0 : a;
+        System.out.println(a);
     }
 
 }

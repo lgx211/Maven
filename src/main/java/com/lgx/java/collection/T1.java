@@ -30,8 +30,13 @@ public class T1 {
                 user1.setAaa("111");
             }
         }
-
         System.out.println(users);
+
+        System.out.println("========");
+        System.out.println("SPECIAL".contains("SPECIAL"));
+        System.out.println("SPECIAL2".contains("SPECIAL"));
+        System.out.println("SPECIAL".contains("SPECIAL2"));
+        System.out.println("".contains("SPECIAL2"));
 
     }
 }
