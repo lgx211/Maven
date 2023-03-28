@@ -22,5 +22,14 @@ public class T1 {
 
 //        System.out.println(Integer.parseInt("-8463847412"));
 
+        long a = 922337203685477580L * 10 + Long.valueOf("8");
+        long b = 922337203685477580L * 10 + 8;
+        System.out.println("a:" + a);
+        System.out.println("b:" + b);
+
+        long c = 0;
+        Character character = 4;
+        c = c * 10 + character;
+        System.out.println("c:" + c);
     }
 }
