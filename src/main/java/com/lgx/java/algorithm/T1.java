@@ -31,5 +31,7 @@ public class T1 {
         Character character = 4;
         c = c * 10 + character;
         System.out.println("c:" + c);
+
+        System.out.println( 5 / 2);
     }
 }

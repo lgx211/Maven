@@ -3,7 +3,7 @@ package com.lgx.java.algorithm;
 public class StringToInteger {
 
     /*
-       题目6
+       题目7
        给定：一个字符
        要求：从左往右，遇到数字，或者遇到正/负号后立马遇到数字，截取他们。
    */
