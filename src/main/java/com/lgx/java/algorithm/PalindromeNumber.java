@@ -10,9 +10,13 @@ public class PalindromeNumber {
     public static void main(String[] args) {
 
 //        int x = 121;
+//        int x = 1221;
 //        int x = -121;
 //        int x = 123;
-        int x = 10;
+//        int x = 10;
+//        int x = 92;
+        int x = 90;
+//        int x = 9;
 
 //        method1(x);
         method2(x);
@@ -59,4 +63,5 @@ public class PalindromeNumber {
 
         System.out.println(flag);
     }
+
 }
