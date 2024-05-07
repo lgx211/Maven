@@ -125,8 +125,18 @@
             <artifactId>jsqlparser</artifactId>
             <version>4.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+            <scope>compile</scope>
+        </dependency>
 
-
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client-java</artifactId>
+            <version>5.0.6</version>
+        </dependency>
 
 
     </dependencies>
